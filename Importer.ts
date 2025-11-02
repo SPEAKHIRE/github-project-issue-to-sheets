@@ -22,7 +22,10 @@ export class Importer {
                 throw new Error("🚨 Some Inputs missed. Please check project README.")
             }
             Core.info("Auth with GitHub Token...")
-            const octokit = new Octokit()
+             const octokit = new Octokit({
+                  auth: process.env.GITHUB_TOKEN
+              })
+
             Core.info("Done.")
             Core.endGroup()
 
