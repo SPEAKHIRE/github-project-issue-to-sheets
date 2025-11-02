@@ -17,7 +17,9 @@ class Importer {
                 throw new Error("🚨 Some Inputs missed. Please check project README.");
             }
             Core.info("Auth with GitHub Token...");
-            const octokit = new rest_1.Octokit();
+            const octokit = new rest_1.Octokit({
+                auth: process.env.GITHUB_TOKEN
+            });
             Core.info("Done.");
             Core.endGroup();
             Core.startGroup("📑 Getting all Issues in repository...");
